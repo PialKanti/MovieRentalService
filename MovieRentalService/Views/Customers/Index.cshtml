@@ -11,12 +11,14 @@
 <table class="table table-striped table-hover">
     <tr class="active">
         <th>Customer</th>
+        <th>Membership Type</th>
     </tr>
     <tbody>
         @foreach (var customer in Model.Customers)
         {
             <tr>
                 <td>@Html.ActionLink(customer.Name,"Details", "Customers", new { id = customer.Id }, null) </td>
+                <td>@customer.MembershipType.Name </td>
             </tr>
         }
     </tbody>
