@@ -23,7 +23,7 @@ namespace MovieRentalService.Repositories
 
         public Customer GetCustomerById(int id)
         {
-            return context.Customers.Find(id);
+            return context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
         }        
     }
 }
