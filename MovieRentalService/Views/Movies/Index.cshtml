@@ -1,0 +1,29 @@
+﻿@model MovieRentalService.ViewModels.MoviesViewModel
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (Model.Movies.Any())
+{
+    <table class="table table-striped table-hover">
+        <tr class="active">
+            <th>Movies</th>
+        </tr>
+        <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>We don't have any customers yet</p>
+}
+
