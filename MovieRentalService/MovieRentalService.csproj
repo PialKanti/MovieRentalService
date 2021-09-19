@@ -167,6 +167,18 @@
     <Compile Include="Migrations\202109191530148_PopulateGenres.designer.cs">
       <DependentUpon>202109191530148_PopulateGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109191544597_AddReleaseDateInMovies.cs" />
+    <Compile Include="Migrations\202109191544597_AddReleaseDateInMovies.designer.cs">
+      <DependentUpon>202109191544597_AddReleaseDateInMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109191546029_AddDateAddedToMovies.cs" />
+    <Compile Include="Migrations\202109191546029_AddDateAddedToMovies.designer.cs">
+      <DependentUpon>202109191546029_AddDateAddedToMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109191546574_AddNumberInStockToMovies.cs" />
+    <Compile Include="Migrations\202109191546574_AddNumberInStockToMovies.designer.cs">
+      <DependentUpon>202109191546574_AddNumberInStockToMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -264,6 +276,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109191530148_PopulateGenres.resx">
       <DependentUpon>202109191530148_PopulateGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109191544597_AddReleaseDateInMovies.resx">
+      <DependentUpon>202109191544597_AddReleaseDateInMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109191546029_AddDateAddedToMovies.resx">
+      <DependentUpon>202109191546029_AddDateAddedToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109191546574_AddNumberInStockToMovies.resx">
+      <DependentUpon>202109191546574_AddNumberInStockToMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
