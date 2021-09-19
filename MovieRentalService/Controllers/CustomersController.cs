@@ -1,4 +1,5 @@
 ﻿using MovieRentalService.Models;
+using MovieRentalService.Repositories;
 using MovieRentalService.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,24 @@ namespace MovieRentalService.Controllers
 {
     public class CustomersController : Controller
     {
+        private ICustomerRepository customerRepository;
+
+        public CustomersController()
+        {
+            this.customerRepository = new CustomerRepository(new ApplicationDBContext());
+        }
+
+        public CustomersController(ICustomerRepository customerRepository)
+        {
+            this.customerRepository = customerRepository;
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
             CustomersViewModel viewModel = new CustomersViewModel
             {
-                Customers = GetCustomers()
+                Customers = customerRepository.GetCustomers()
             };
 
             return View(viewModel);
@@ -23,17 +36,14 @@ namespace MovieRentalService.Controllers
 
         public ActionResult Details(int id)
         {
-            Customer customer = GetCustomers().FirstOrDefault(c => c.Id == id);
-            return View(customer);
-        }
+            Customer customer = customerRepository.GetCustomerById(id);
 
-        public List<Customer> GetCustomers()
-        {
-            return new List<Customer>
+            if(customer == null)
             {
-                new Customer{Id = 1, Name = "John Smith"},
-                new Customer{Id =2, Name="Anna Bell" }
-            };
+                return HttpNotFound();
+            }
+
+            return View(customer);
         }
     }
 }

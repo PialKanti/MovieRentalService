@@ -1,4 +1,5 @@
 ﻿using MovieRentalService.Models;
+using MovieRentalService.Repositories;
 using MovieRentalService.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,24 @@ namespace MovieRentalService.Controllers
 {
     public class MoviesController : Controller
     {
+        private IMovieRepository movieRepository;
+
+        public MoviesController()
+        {
+            this.movieRepository = new MovieRepository(new ApplicationDBContext());
+        }
+
+        public MoviesController(IMovieRepository movieRepository)
+        {
+            this.movieRepository = movieRepository;
+        }
+
         // GET: Movies
         public ActionResult Index()
         {
             MoviesViewModel viewModel = new MoviesViewModel
             {
-                Movies = GetMovies()
+                Movies = movieRepository.GetMovies()
             };
 
             return View(viewModel);
@@ -23,17 +36,14 @@ namespace MovieRentalService.Controllers
 
         public ActionResult Details(int id)
         {
-            Movie movie = GetMovies().FirstOrDefault(m => m.Id == id);
-            return View(movie);
-        }
+            Movie movie = movieRepository.GetMovieById(id);
 
-        public List<Movie> GetMovies()
-        {
-            return new List<Movie>
+            if(movie == null)
             {
-                new Movie{Id = 1, Name = "Shrek"},
-                new Movie{Id = 2, Name = "Wall-e"}
-            };
+                return HttpNotFound();
+            }
+
+            return View(movie);
         }
     }
 }
