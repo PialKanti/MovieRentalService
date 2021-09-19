@@ -9,5 +9,7 @@ namespace MovieRentalService.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public MembershipType MembershipType { get; set; }
+        public int MembershipTypeId { get; set; }
     }
 }
