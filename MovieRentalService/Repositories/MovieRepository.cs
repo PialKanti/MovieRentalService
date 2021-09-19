@@ -1,6 +1,7 @@
 ﻿using MovieRentalService.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -17,7 +18,7 @@ namespace MovieRentalService.Repositories
 
         public IEnumerable<Movie> GetMovies()
         {
-            return context.Movies.ToList();
+            return context.Movies.Include(c => c.Genre).ToList();
         }
 
         public Movie GetMovieById(int id)
