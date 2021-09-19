@@ -23,7 +23,7 @@ namespace MovieRentalService.Repositories
 
         public Movie GetMovieById(int id)
         {
-            return context.Movies.Find(id);
+            return context.Movies.Include(c => c.Genre).SingleOrDefault(m => m.Id == id);
         }
     }
 }
