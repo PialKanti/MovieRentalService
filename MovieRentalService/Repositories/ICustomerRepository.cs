@@ -11,5 +11,9 @@ namespace MovieRentalService.Repositories
     {
         IEnumerable<Customer> GetCustomers();
         Customer GetCustomerById(int id);
+        IEnumerable<MembershipType> GetMembershipTypes();
+
+        Customer Add(Customer customer);
+        Customer Update(Customer customer);
     }
 }

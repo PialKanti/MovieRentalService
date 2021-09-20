@@ -45,5 +45,39 @@ namespace MovieRentalService.Controllers
 
             return View(customer);
         }
+
+        public ActionResult New()
+        {
+            CustomerFormViewModel viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = customerRepository.GetMembershipTypes()
+            };
+            return View("CustomerForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if(customer.Id == 0)
+            {
+                customerRepository.Add(customer);
+                return RedirectToAction("Index", "Customers");
+            }
+            else
+            {
+                Customer existingCustomer = customerRepository.Update(customer);
+                return RedirectToAction("Details", "Customers", new { Id = existingCustomer.Id });
+            }
+        }
+
+        public ActionResult Edit(int id)
+        {
+            CustomerFormViewModel viewModel = new CustomerFormViewModel
+            {
+                Customer = customerRepository.GetCustomerById(id),
+                MembershipTypes = customerRepository.GetMembershipTypes()
+            };
+            return View("CustomerForm", viewModel);
+        }
     }
 }
