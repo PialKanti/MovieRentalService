@@ -6,7 +6,9 @@
 
 <h2>Customers</h2>
 
-@Html.ActionLink("Create", "New", "Customers", null, new { @class = "btn btn-success", @role = "button" })
+<p>
+    @Html.ActionLink("Create", "New", "Customers", null, new { @class = "btn btn-primary", @role = "button" })
+</p>
 
 @if (Model.Customers.Any())
 {

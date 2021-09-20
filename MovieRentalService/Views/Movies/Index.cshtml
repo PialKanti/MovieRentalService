@@ -6,20 +6,26 @@
 
 <h2>Movies</h2>
 
+<p>
+    @Html.ActionLink("Create", "New", "Movies", null, new { @class = "btn btn-primary" })
+</p>
+
 @if (Model.Movies.Any())
 {
     <table class="table table-striped table-hover">
         <tr class="active">
             <th>Movies</th>
             <th>Genre</th>
+            <th>#</th>
         </tr>
         <tbody>
             @foreach (var movie in Model.Movies)
             {
-                <tr>
-                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
-                    <td>@movie.Genre.Name</td>
-                </tr>
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Movies", new { id = movie.Id }, null)</td>
+            </tr>
             }
         </tbody>
     </table>

@@ -11,5 +11,8 @@ namespace MovieRentalService.Repositories
     {
         IEnumerable<Movie> GetMovies();
         Movie GetMovieById(int id);
+        IEnumerable<Genre> GetGenres();
+        Movie Add(Movie movie);
+        Movie Update(Movie movie);
     }
 }

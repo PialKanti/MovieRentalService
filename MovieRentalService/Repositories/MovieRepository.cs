@@ -25,5 +25,30 @@ namespace MovieRentalService.Repositories
         {
             return context.Movies.Include(c => c.Genre).SingleOrDefault(m => m.Id == id);
         }
+
+        public IEnumerable<Genre> GetGenres()
+        {
+            return context.Genres.ToList();
+        }
+
+        public Movie Add(Movie movie)
+        {
+            movie.DateAdded = DateTime.Now;
+            Movie newMovie = context.Movies.Add(movie);
+            context.SaveChanges();
+            return newMovie;
+        }
+
+        public Movie Update(Movie movie)
+        {
+            Movie movieInDB = context.Movies.Single(m => m.Id == movie.Id);
+            movieInDB.Name = movie.Name;            
+            movieInDB.GenreId = movie.GenreId;            
+            movieInDB.ReleaseDate = movie.ReleaseDate;            
+            movieInDB.NumberInStock = movie.NumberInStock;
+
+            context.SaveChanges();
+            return movieInDB;
+        }
     }
 }

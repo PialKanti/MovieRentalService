@@ -45,5 +45,39 @@ namespace MovieRentalService.Controllers
 
             return View(movie);
         }
+
+        public ActionResult New()
+        {
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Genres = movieRepository.GetGenres()
+            };
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                movieRepository.Add(movie);
+                return RedirectToAction("Index", "Movies");
+            }
+            else
+            {
+                Movie existingMovie = movieRepository.Update(movie);
+                return RedirectToAction("Details", "Movies", new { Id = existingMovie.Id });
+            }
+        }
+
+        public ActionResult Edit(int id)
+        {
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Movie = movieRepository.GetMovieById(id),
+                Genres = movieRepository.GetGenres()
+            };
+            return View("MovieForm", viewModel);
+        }
     }
 }

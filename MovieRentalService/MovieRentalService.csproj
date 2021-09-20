@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202109201745346_AddIsSubscribedToNewsletterToCustomers.designer.cs">
       <DependentUpon>202109201745346_AddIsSubscribedToNewsletterToCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109201855454_AddGenreIdToMovies.cs" />
+    <Compile Include="Migrations\202109201855454_AddGenreIdToMovies.designer.cs">
+      <DependentUpon>202109201855454_AddGenreIdToMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -196,6 +200,7 @@
     <Compile Include="Repositories\MovieRepository.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\MoviesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +246,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109201745346_AddIsSubscribedToNewsletterToCustomers.resx">
       <DependentUpon>202109201745346_AddIsSubscribedToNewsletterToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109201855454_AddGenreIdToMovies.resx">
+      <DependentUpon>202109201855454_AddGenreIdToMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
