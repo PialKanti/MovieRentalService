@@ -179,6 +179,10 @@
     <Compile Include="Migrations\202109191546574_AddNumberInStockToMovies.designer.cs">
       <DependentUpon>202109191546574_AddNumberInStockToMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109201745346_AddIsSubscribedToNewsletterToCustomers.cs" />
+    <Compile Include="Migrations\202109201745346_AddIsSubscribedToNewsletterToCustomers.designer.cs">
+      <DependentUpon>202109201745346_AddIsSubscribedToNewsletterToCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109191546574_AddNumberInStockToMovies.resx">
       <DependentUpon>202109191546574_AddNumberInStockToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109201745346_AddIsSubscribedToNewsletterToCustomers.resx">
+      <DependentUpon>202109201745346_AddIsSubscribedToNewsletterToCustomers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
